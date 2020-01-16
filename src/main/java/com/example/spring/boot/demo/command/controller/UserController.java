@@ -1,10 +1,15 @@
 package com.example.spring.boot.demo.command.controller;
 
+import com.example.spring.boot.demo.command.common.entity.ApiResult;
+import com.example.spring.boot.demo.command.entity.Test;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>Title:用户控制层 </p>
@@ -14,12 +19,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Api(tags = "系统管理")
 @RequestMapping("api/user")
-@Controller
+@RestController
 public class UserController {
 
     @ApiOperation("注册")
     @PostMapping()
-    public void insert(){
-        System.out.println(111);
+    public ApiResult insert(@Validated @RequestBody Test test){
+        return ApiResult.success();
     }
 }
