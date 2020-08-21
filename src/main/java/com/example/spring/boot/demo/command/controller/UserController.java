@@ -28,6 +28,6 @@ public class UserController {
     @GetMapping()
     @ApiOperation("测试")
     public ApiResult test(){
-        return ApiResult.success("8000");
+        return ApiResult.success("8001");
     }
 }
